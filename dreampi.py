@@ -102,7 +102,7 @@ def detect_device_and_speed():
             m.connect()
             m._serial.write(b'AT\r\n')
             time.sleep(1)
-            if m._serial.readline().strip() == b'AT':
+            if m._serial.readline().strip() == b'AT' or b'OK':
                 logging.info(f'Using {port} at speed {speed}\n\n\n\n')
                 m.disconnect()
                 return port, speed
